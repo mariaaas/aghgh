@@ -1,0 +1,21 @@
+class Tile {
+public:
+    int x, y;
+    SDL_Rect texture_clip;
+    SDL_Rect render_clip;
+    Tile(int x, int y) : x(x), y(y) {}
+    void calculateTextureClip(int tileWidth, int tileHeight)
+{
+   	this->texture_clip.w = tileWidth;
+   	this->texture_clip.h = tileHeight;
+    	this->texture_clip.x = x * tileWidth;
+    	this->texture_clip.y = y * tileHeight;
+};
+    void calculateRenderClip(int x, int y, int tileWidth, int tileHeight) 
+{
+   	this->render_clip.w = tileWidth;
+    	this->render_clip.h = tileHeight;
+   	this->render_clip.x = x * tileWidth;
+   	this->render_clip.y = y * tileHeight;
+       };
+};
